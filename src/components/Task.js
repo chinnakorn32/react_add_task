@@ -4,6 +4,7 @@ import TaskItem from "./TaskItem";
 import EditTask from "./EditTask";
 import { doc, updateDoc, deleteDoc } from "firebase/firestore";
 import { db } from "../firebase/firebase";
+import swal from "sweetalert";
 
 function Task({ id, title, description, completed }) {
   const [checked, setChecked] = useState(completed);
@@ -29,16 +30,28 @@ function Task({ id, title, description, completed }) {
   const handleDelete = async () => {
     const taskDocRef = doc(db, "tasks", id);
     try {
-      await deleteDoc(taskDocRef);
+      // await deleteDoc(taskDocRef);
+      swal({
+        title: "Are you sure?",
+        text: "Once deleted, you will not be able to recover this imaginary file!",
+        icon: "warning",
+        buttons: true,
+        dangerMode: true,
+      }).then((willDelete) => {
+        if (willDelete) {
+          swal("Poof! Your imaginary file has been deleted!", {
+            icon: "success",
+          });
+          deleteDoc(taskDocRef);
+        }
+      });
     } catch (err) {
       alert(err);
     }
   };
 
   return (
-    <div
-      className={`task ${checked && "task--borderColor"}`}
-    >
+    <div className={`task ${checked && "task--borderColor"}`}>
       <div>
         <input
           id={`checkbox-${id}`}
@@ -53,7 +66,6 @@ function Task({ id, title, description, completed }) {
           className="checkbox-custom-label"
           onClick={() => setChecked(!checked)}
         ></label>
-
       </div>
       <div className="task__body">
         <h2>{title}</h2>

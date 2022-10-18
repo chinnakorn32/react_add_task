@@ -2,11 +2,7 @@ import React from "react";
 import TaskManager from "./components/TaskManager";
 
 function App() {
-  return (
-    <div>
-      <TaskManager />
-    </div>
-  );
+  return <TaskManager />;
 }
 
 export default App;
