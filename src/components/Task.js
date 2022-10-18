@@ -32,15 +32,16 @@ function Task({ id, title, description, completed }) {
     try {
       // await deleteDoc(taskDocRef);
       swal({
-        title: "Are you sure?",
-        text: "Once deleted, you will not be able to recover this imaginary file!",
+        title: "คุณแน่ใจไหม?",
+        text: "เมื่อลบแล้ว คุณจะไม่สามารถกู้คืนไฟล์นี้ได้!",
         icon: "warning",
         buttons: true,
         dangerMode: true,
       }).then((willDelete) => {
         if (willDelete) {
-          swal("Poof! Your imaginary file has been deleted!", {
+          swal("ไฟล์ของคุณถูกลบไปแล้ว!", {
             icon: "success",
+            timer: 1500,
           });
           deleteDoc(taskDocRef);
         }
