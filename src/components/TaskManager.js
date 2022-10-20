@@ -29,7 +29,9 @@ function TaskManager() {
     <div className="taskManager">
       <header>บันทึกไอเดียได้ทุกที่</header>
       <div className="taskManager__container">
-        <button onClick={() => setOpenAddModal(true)}>เพิ่มงาน <i class="fa-solid fa-plus"></i></button>
+        <button onClick={() => setOpenAddModal(true)}>
+          เพิ่มงาน <i class="fa-solid fa-plus"></i>
+        </button>
         <div className="taskManager__tasks">
           {tasks.map((task) => (
             <Task

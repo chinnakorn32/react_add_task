@@ -6,7 +6,7 @@ import { doc, updateDoc, deleteDoc } from "firebase/firestore";
 import { db } from "../firebase/firebase";
 import swal from "sweetalert";
 
-function Task({ id, title, description, completed }) {
+function Task({ id, title, description, completed , created}) {
   const [checked, setChecked] = useState(completed);
   const [open, setOpen] = useState({ edit: false, view: false });
 
