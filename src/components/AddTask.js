@@ -25,19 +25,19 @@ function AddTask({ onClose, open }) {
   };
 
   return (
-    <Modal modalLable="เพิ่มงาน" onClose={onClose} open={open}>
+    <Modal modalLable="📌 เพิ่มงาน" onClose={onClose} open={open}>
       <form onSubmit={handleSubmit} className="addTask" name="addTask">
         <input
           type="text"
           name="title"
           onChange={(e) => setTitle(e.target.value.toUpperCase())}
           value={title}
-          placeholder="ชื่อหัวข้อ"
+          placeholder="📄 ชื่อหัวข้อ"
         />
 
         <textarea
           onChange={(e) => setDescription(e.target.value)}
-          placeholder="ป้อนคำอธิบายงาน"
+          placeholder="📝 ป้อนคำอธิบายงาน"
           value={description}
         ></textarea>
         <button type="submit">

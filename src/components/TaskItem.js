@@ -6,7 +6,7 @@ function TaskItem({onClose, open, title, description}) {
   return (
     <Modal modalLable='รายการงาน' onClose={onClose} open={open}>
       <div className='taskItem'>
-        <h2>{title}</h2>
+        <h2>หัวข้อ : {title}</h2>
         <p>{description}</p>
       </div>
     </Modal>

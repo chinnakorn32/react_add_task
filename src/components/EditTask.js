@@ -24,7 +24,7 @@ function EditTask({ open, onClose, toEditTitle, toEditDescription, id }) {
   };
 
   return (
-    <Modal modalLable="แก้ไขงาน" onClose={onClose} open={open}>
+    <Modal modalLable="✅ แก้ไขงาน" onClose={onClose} open={open}>
       <form onSubmit={handleUpdate} className="editTask">
         <input
           type="text"

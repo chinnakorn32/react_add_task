@@ -26,7 +26,8 @@
   border: none;
   color: white;
   background-color: hsl(210, 12%, 15%);
-  border-radius:5px
+  border-radius:5px;
+  font-family: "Kanit", sans-serif;
 }
 
 .editTask textarea {

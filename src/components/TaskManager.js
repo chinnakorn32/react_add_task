@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { collection, query, orderBy, onSnapshot } from "firebase/firestore";
 import { db } from "../firebase/firebase";
 import AddTask from "./AddTask";
+import Navbar from "./Navbar";
 
 function TaskManager() {
   const [openAddModal, setOpenAddModal] = useState(false);
@@ -27,7 +28,7 @@ function TaskManager() {
 
   return (
     <div className="taskManager">
-      <header>บันทึกไอเดียได้ทุกที่</header>
+      <Navbar/>
       <div className="taskManager__container">
         <button onClick={() => setOpenAddModal(true)}>
           เพิ่มงาน <i class="fa-solid fa-plus"></i>
