@@ -1,14 +1,17 @@
+import { signOut } from "firebase/auth";
 import React, { useState } from "react";
-import './navbar.css'
+import { Link } from "react-router-dom";
+import { auth } from "../firebase/firebase";
+import "./navbar.css";
 
 function Navbar() {
   const [isNavExpanded, setIsNavExpanded] = useState(false);
 
   return (
     <nav className="navigation">
-      <a href="/" className="brand-name">
-      🧑‍💻 บันทึกไอเดียได้ทุกที่
-      </a>
+      <Link to="/" className="brand-name">
+        🧑‍💻 บันทึกไอเดียได้ทุกที่
+      </Link>
       <button
         className="hamburger"
         onClick={() => {
@@ -35,13 +38,7 @@ function Navbar() {
       >
         <ul>
           <li>
-            <a href="/home">Home</a>
-          </li>
-          <li>
-            <a href="/about">About</a>
-          </li>
-          <li>
-            <a href="/contact">Contact</a>
+            <Link onClick={() => signOut(auth)}><i class="fa-solid fa-power-off"></i></Link>
           </li>
         </ul>
       </div>

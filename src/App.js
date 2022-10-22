@@ -8,9 +8,9 @@ import PrivateRoute from "./auth/PrivateRoute";
 import Login from "./auth/Login";
 import Register from "./auth/Register";
 import VerifyEmail from "./auth/VerifyEmail";
+import Notfound from "./pages/Notfound";
 
 function App() {
-
   const [currentUser, setCurrentUser] = useState(null);
   const [timeActive, setTimeActive] = useState(false);
 
@@ -24,28 +24,42 @@ function App() {
     <BrowserRouter basename="/react/AddTask">
       <AuthProvider value={{ currentUser, timeActive, setTimeActive }}>
         <Routes>
-          <Route exact path="/" element={
+          <Route
+            exact
+            path="/"
+            element={
               <PrivateRoute>
                 <TaskManager />
               </PrivateRoute>
             }
           />
-           <Route path="/login" element={
-            !currentUser?.emailVerified 
-            ? <Login/>
-            : <Navigate to='/' replace/>
-          } />
+          <Route
+            path="/login"
+            element={
+              !currentUser?.emailVerified ? (
+                <Login />
+              ) : (
+                <Navigate to="/" replace />
+              )
+            }
+          />
 
-          <Route path="/register" element={
-            !currentUser?.emailVerified 
-            ? <Register/>
-            : <Navigate to='/' replace/>
-          } />
-           <Route path='/verify-email' element={<VerifyEmail/>} /> 
+          <Route
+            path="/register"
+            element={
+              !currentUser?.emailVerified ? (
+                <Register />
+              ) : (
+                <Navigate to="/" replace />
+              )
+            }
+          />
+          <Route path="/verify-email" element={<VerifyEmail />} />
+          <Route path="*" element={<Notfound />} />
         </Routes>
       </AuthProvider>
     </BrowserRouter>
-  )
+  );
 }
 
-export default App
+export default App;

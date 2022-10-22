@@ -6,7 +6,7 @@ import { doc, updateDoc, deleteDoc } from "firebase/firestore";
 import { db } from "../firebase/firebase";
 import swal from "sweetalert";
 
-function Task({ id, title, description, completed , created}) {
+function Task({ id, title, description, completed, created }) {
   const [checked, setChecked] = useState(completed);
   const [open, setOpen] = useState({ edit: false, view: false });
 
@@ -54,6 +54,7 @@ function Task({ id, title, description, completed , created}) {
   return (
     <div className={`task ${checked && "task--borderColor"}`}>
       <div>
+        <div className="checkbox-custom">
         <input
           id={`checkbox-${id}`}
           className="checkbox-custom"
@@ -62,11 +63,12 @@ function Task({ id, title, description, completed , created}) {
           onChange={handleChange}
           type="checkbox"
         />
-        <label
+           <label
           htmlFor={`checkbox-${id}`}
           className="checkbox-custom-label"
           onClick={() => setChecked(!checked)}
         ></label>
+        </div>
       </div>
       <div className="task__body">
         <h2>{title}</h2>
