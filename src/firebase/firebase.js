@@ -2,10 +2,10 @@ import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 import { getAuth } from "firebase/auth";
 
-
 const firebaseConfig = {
   apiKey: "AIzaSyD9yvnNWY-9J1CckBMM2WnzYg1kQFOFm50",
   authDomain: "add-task-dd3a2.firebaseapp.com",
+  databaseURL: "https://add-task-dd3a2.firebaseio.com",
   projectId: "add-task-dd3a2",
   storageBucket: "add-task-dd3a2.appspot.com",
   messagingSenderId: "1073889432475",
