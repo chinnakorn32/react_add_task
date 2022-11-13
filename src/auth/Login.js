@@ -6,7 +6,6 @@ import {useNavigate} from 'react-router-dom'
 import {useAuthValue} from './AuthContext'
 import { auth } from '../firebase/firebase'
 
-
 function Login(){
 
   const [email, setEmail] = useState('')

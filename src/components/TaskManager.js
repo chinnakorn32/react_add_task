@@ -26,6 +26,7 @@ function TaskManager() {
     });
   }, []);
 
+
   return (
     <div className="taskManager">
       <Navbar/>
@@ -33,6 +34,7 @@ function TaskManager() {
         <button onClick={() => setOpenAddModal(true)}>
           เพิ่มงาน <i class="fa-solid fa-plus"></i>
         </button>
+
         <div className="taskManager__tasks">
           {tasks.map((task) => (
             <Task
